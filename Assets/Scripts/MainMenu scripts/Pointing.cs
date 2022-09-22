@@ -16,7 +16,7 @@ public class Pointing : MonoBehaviour
     void Update()
     {
         Vector3 rayOrigin = mainCamera.ViewportToWorldPoint (new Vector3 (.5f, .3f, 0)); 
-        laserLine.SetPositions()
+        //laserLine.SetPositions()
 
         if(Input.GetAxis("Mouse X")<0)
             transform.RotateAround(transform.position,Vector3.up,-1f);

@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Damage()
+    public void Damage()
     {
         currentHealth -= 1;
         Debug.Log("The player has been attacked");

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))//if(Input.GetMouseButtonDown(0))//if(Input.anyKeyDown)
+        if(Input.anyKeyDown)//if(Input.GetMouseButtonDown(0))//if(Input.anyKeyDown)
         {
             gun.shoot();
         }

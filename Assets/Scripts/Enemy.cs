@@ -9,6 +9,10 @@ public class Enemy : MonoBehaviour
     public float attackRate; // Number in seconds which controls how often the Enemy can attack
     private Player player;
 
+
+    int MoveSpeed = 4;
+    int MinDist = 3;
+    
     void Start()
     {
         attackRate = 3f;
@@ -18,9 +22,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Vector3 playerPoint = Camera.main.transform.position - new Vector3(0,1.5f,0);
-        if(Vector3.Distance(transform.position, playerPoint) > 4)
+        gameObject.transform.LookAt(playerPoint);
+        if(Vector3.Distance(transform.position, playerPoint) > MinDist)
         {
-            transform.position = Vector3.Lerp(transform.position, playerPoint, Time.deltaTime);
+           // transform.position = Vector3.Lerp(transform.position, playerPoint, Time.deltaTime);
+           transform.position += transform.forward * MoveSpeed * Time.deltaTime;
         }
         else
         {
@@ -31,7 +37,6 @@ public class Enemy : MonoBehaviour
                 nextAttack = Time.time + attackRate;
             }
         }
-        gameObject.transform.LookAt(playerPoint);
     }
 
     void OnCollisionEnter(Collision collision)

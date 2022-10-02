@@ -781,8 +781,8 @@ GameObject:
   - component: {fileID: 7577297976274666096}
   - component: {fileID: 2154891642698680652}
   m_Layer: 0
-  m_Name: C02 1
-  m_TagString: Untagged
+  m_Name: mon0
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

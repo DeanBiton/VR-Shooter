@@ -9996,7 +9996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3626928933235343600, guid: 626c574803b0041429d5c28ec3feeeda, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3626928933235343600, guid: 626c574803b0041429d5c28ec3feeeda, type: 3}
       propertyPath: m_Center.y
@@ -10100,7 +10100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathCreator: {fileID: 88192904}
   end: 0
-  speed: 0.2
+  speed: 1
 --- !u!143 &2105638321
 CharacterController:
   m_ObjectHideFlags: 0

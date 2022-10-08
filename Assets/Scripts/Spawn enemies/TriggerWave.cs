@@ -11,7 +11,7 @@ public class TriggerWave : MonoBehaviour
         if (other.tag == "Player")
         {
             spawner.TriggerWave();
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }

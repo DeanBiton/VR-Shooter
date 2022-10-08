@@ -6,6 +6,7 @@ public abstract class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
     protected List<Transform> children;
+    protected int childNum = 0;
 
     void Start()
     {
@@ -23,6 +24,15 @@ public abstract class EnemySpawner : MonoBehaviour
         {
             Instantiate(enemies[num], spawnPoint.position, Quaternion.identity);
             yield return new WaitForSeconds(cooldown);
+        }
+    }
+
+    protected void createWave(int [][] arr, float [] cooldowns)
+    {
+        for(int i = 0; i < arr.Length; i++)
+        {
+            StartCoroutine(generateEnemies(arr[i], children[childNum], cooldowns[i]));
+            childNum++;
         }
     }
 

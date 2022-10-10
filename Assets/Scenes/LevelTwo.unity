@@ -1505,7 +1505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &160565467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12168,7 +12168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1198009108 stripped
 Transform:
@@ -12385,7 +12385,7 @@ RectTransform:
   - {fileID: 160565467}
   - {fileID: 1263855405}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12404,6 +12404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdf9eee20f581c4fb16d9df318af3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartFills: []
+  fullHeart: {fileID: 0}
+  emptyHeart: {fileID: 0}
+  endGame: 0
 --- !u!1001 &1224831099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14061,6 +14065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1366539165}
   - component: {fileID: 1366539167}
+  - component: {fileID: 1366539166}
   m_Layer: 0
   m_Name: EndLevel
   m_TagString: Untagged
@@ -14076,12 +14081,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366539164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36, y: 1, z: -0.28}
+  m_LocalPosition: {x: 9.49, y: 1, z: -0.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1147211604}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1366539166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366539164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168d9cfad96213e40b9f48a7dd2644d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUI: {fileID: 2105638321}
 --- !u!65 &1366539167
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22132,6 +22150,17 @@ MonoBehaviour:
   pathCreator: {fileID: 88192904}
   end: 0
   speed: 0.1
+--- !u!114 &2105638321 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1401216654788817526, guid: 626c574803b0041429d5c28ec3feeeda, type: 3}
+  m_PrefabInstance: {fileID: 2105638317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdf9eee20f581c4fb16d9df318af3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2131550438
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -29,6 +29,59 @@ public class Level1Spawner : EnemySpawner
 
     private void wave1()
     {
+        int [][] arr =
+        {
+            new int[] {0,1,0}, 
+        };
+
+        float [] cooldowns = {3.0f};
+
+        createWave(arr, cooldowns);
+    }
+
+    private void wave2()
+    {
+        int [][] arr =
+        {
+            new int[] {0,1}, 
+            new int[] {1,0},
+        };
+
+        float [] cooldowns = {3.0f, 3.0f};
+
+        createWave(arr, cooldowns);
+    }
+
+    private void wave3()
+    {
+        int [][] arr =
+        {
+            new int[] {0}, 
+            new int[] {1},
+            new int[] {0},
+        };
+
+        float [] cooldowns = {5.0f, 5.0f, 5.0f};
+
+        createWave(arr, cooldowns);
+    }
+
+    private void wave4()
+    {
+        int [][] arr =
+        {
+            new int[] {0,1}, 
+            new int[] {1,0},
+            new int[] {1,0},
+        };
+
+        float [] cooldowns = {5.0f, 5.0f, 5.0f};
+
+        createWave(arr, cooldowns);
+    }
+    /*
+    private void wave1()
+    {
         int[] arr1 = new int[] {0,1,0};
         StartCoroutine(generateEnemies(arr1, children[0], 5.0f));
     }
@@ -59,5 +112,5 @@ public class Level1Spawner : EnemySpawner
         StartCoroutine(generateEnemies(arr2, children[7], 5.0f));
         int[] arr3 = new int[] {1,0};
         StartCoroutine(generateEnemies(arr3, children[8], 5.0f));
-    }
+    }*/
 }

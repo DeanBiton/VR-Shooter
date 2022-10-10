@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] Gun gun;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform gunStart;
+    [SerializeField] private LevelUI levelUI;
     private int currentHealth;
 
     void Start()
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Input.anyKeyDown)//if(Input.GetMouseButtonDown(0))//if(Input.anyKeyDown)
+        if(Input.anyKeyDown && !levelUI.endGame)//if(Input.GetMouseButtonDown(0))//if(Input.anyKeyDown)
         {
             gun.shoot();
         }
@@ -25,10 +26,10 @@ public class Player : MonoBehaviour
     public void Damage()
     {
         currentHealth -= 1;
-        Debug.Log("The player has been attacked");
+        levelUI.updateHealth(currentHealth);
         if(currentHealth == 0)
         {
-            Debug.Log("Dead");
+            levelUI.levelFailed();
         }
     }
 }

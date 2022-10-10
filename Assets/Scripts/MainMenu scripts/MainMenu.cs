@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviour
         HowToPlayPanel = transform.GetChild(1).gameObject;
         PlayPanel = transform.GetChild(2).gameObject;
         QuitPanel = transform.GetChild(3).gameObject;
+        Time.timeScale = 1;
+        //(PlayerPrefs.GetString("maxLevelCompleted"))
     }
 
     void Update()
@@ -56,6 +58,11 @@ public class MainMenu : MonoBehaviour
     public void level1Btn()
     {
         SceneManager.LoadScene("LevelOne");
+    }
+
+    public void level2Btn()
+    {
+        SceneManager.LoadScene("LevelTwo");
     }
 
     private void click()

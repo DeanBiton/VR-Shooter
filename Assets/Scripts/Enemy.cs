@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private float nextAttack;
     public float attackRate; // Number in seconds which controls how often the Enemy can attack
     private Player player;
+    private Animator monsterController;
 
 
     int MoveSpeed = 4;
@@ -17,24 +18,32 @@ public class Enemy : MonoBehaviour
     {
         attackRate = 3f;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        monsterController = gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
         Vector3 playerPoint = Camera.main.transform.position - new Vector3(0,1.5f,0);
         gameObject.transform.LookAt(playerPoint);
-        if(Vector3.Distance(transform.position, playerPoint) > MinDist)
+
+        if(!monsterController.GetCurrentAnimatorStateInfo(0).IsName("Start") && !monsterController.GetCurrentAnimatorStateInfo(0).IsName("Die"))
         {
-           // transform.position = Vector3.Lerp(transform.position, playerPoint, Time.deltaTime);
-           transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-        }
-        else
-        {
-            if(Time.time > nextAttack)
+            if(Vector3.Distance(transform.position, playerPoint) > MinDist)
             {
-                Debug.Log("attack");
-                player.Damage();
-                nextAttack = Time.time + attackRate;
+                monsterController.SetTrigger("Run");
+                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            }
+            else
+            {
+                if(Time.time > nextAttack)
+                {
+                    monsterController.SetTrigger("Attack");
+                    if(monsterController.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+                    {
+                        player.Damage();
+                        nextAttack = Time.time + attackRate;
+                    }
+                }
             }
         }
     }
@@ -49,9 +58,13 @@ public class Enemy : MonoBehaviour
 
 	void Damage(int damageAmount)
 	{
+        float delay = 1f;
 		currentHealth -= damageAmount;
 
-		if (currentHealth == 0) 
-		    Destroy(gameObject);
+		if (currentHealth == 0)
+        {
+            monsterController.SetTrigger("Die");
+		    Destroy(gameObject, monsterController.GetCurrentAnimatorStateInfo(0).length + delay); 
+        }
     }
 }

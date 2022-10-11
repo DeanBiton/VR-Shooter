@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
         PlayPanel = transform.GetChild(2).gameObject;
         QuitPanel = transform.GetChild(3).gameObject;
         Time.timeScale = 1;
-        //(PlayerPrefs.GetString("maxLevelCompleted"))
+        unlockLevels();
     }
 
     void Update()
@@ -27,6 +27,20 @@ public class MainMenu : MonoBehaviour
         if(Input.anyKeyDown)
         {
             click();
+        }
+    }
+
+    private void unlockLevels()
+    {
+        int maxLevel = PlayerPrefs.GetInt("maxLevelCompleted");
+        GameObject[] levels = GameObject.FindGameObjectsWithTag("Level");
+        for(int i = 0; i < maxLevel + 1; i++)
+        {
+            levels[i].transform.GetChild(1).gameObject.SetActive(false);
+        }
+        for(int i = maxLevel + 1; i < levels.Length; i++)
+        {
+            levels[i].GetComponent<Button>().interactable = false;
         }
     }
 
@@ -75,7 +89,11 @@ public class MainMenu : MonoBehaviour
         {
             if (hit.collider != null)
             {
-                hit.collider.GetComponentInParent<Button>().onClick.Invoke();
+                Button button = hit.collider.GetComponentInParent<Button>();
+                if(button.interactable)
+                {
+                    button.onClick.Invoke();
+                }
             }
         }
     }

@@ -43,17 +43,19 @@ public class LevelUI : MonoBehaviour
 
     public void levelFailed()
     {
-        Debug.LogError("level failed");
         DeadPanel.SetActive(true);
         Time.timeScale = 0;
         endGame =  true;
     }
 
-    public void levelCompleted()
+    public void levelCompleted(int level)
     {
-        Debug.LogError("level completed");
         EndLevelPanel.SetActive(true);
         Time.timeScale = 0;
+        if(level > PlayerPrefs.GetInt("maxLevelCompleted"))
+        {
+            PlayerPrefs.SetInt("maxLevelCompleted", level);
+        }
         endGame =  true;
     }
 }

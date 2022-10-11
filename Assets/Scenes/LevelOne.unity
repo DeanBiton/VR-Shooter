@@ -9174,6 +9174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUI: {fileID: 867628934}
+  level: 1
 --- !u!65 &1953708736
 BoxCollider:
   m_ObjectHideFlags: 0

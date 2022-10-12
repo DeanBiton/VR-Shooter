@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
     {
         int maxLevel = PlayerPrefs.GetInt("maxLevelCompleted");
         GameObject[] levels = GameObject.FindGameObjectsWithTag("Level");
-        for(int i = 0; i < maxLevel + 1; i++)
+        for(int i = 0; i < maxLevel + 1 && i < levels.Length; i++)
         {
             levels[i].transform.GetChild(1).gameObject.SetActive(false);
         }

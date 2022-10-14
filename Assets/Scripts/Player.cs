@@ -8,16 +8,18 @@ public class Player : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Transform gunStart;
     [SerializeField] private LevelUI levelUI;
+    private SoundManager soundManager;
     private int currentHealth;
 
     void Start()
     {
         currentHealth = 3;
+        soundManager = GameObject.FindWithTag("Sound").GetComponent<SoundManager>();
     }
 
     void Update()
     {
-        if(Input.anyKeyDown && !levelUI.endGame)//if(Input.GetMouseButtonDown(0))//if(Input.anyKeyDown)
+        if(Input.anyKeyDown && !levelUI.endGame)
         {
             gun.shoot();
         }
@@ -25,6 +27,7 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
+        soundManager.hurt();
         currentHealth -= 1;
         levelUI.updateHealth(currentHealth);
         if(currentHealth == 0)

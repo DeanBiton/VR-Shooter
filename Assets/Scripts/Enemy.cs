@@ -5,20 +5,21 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private int currentHealth = 1;
+    private int MoveSpeed = 4;
+    private int MinDist = 3;
     private float nextAttack;
     public float attackRate; // Number in seconds which controls how often the Enemy can attack
     private Player player;
     private Animator monsterController;
+    [SerializeField] private SoundManager soundManager;
 
-
-    int MoveSpeed = 4;
-    int MinDist = 3;
-    
     void Start()
     {
         attackRate = 3f;
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         monsterController = gameObject.GetComponent<Animator>();
+        soundManager = GameObject.FindWithTag("Sound").GetComponent<SoundManager>();
+        soundManager.enemyAppear();
     }
 
     void Update()

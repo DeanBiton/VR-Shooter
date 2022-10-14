@@ -10,7 +10,9 @@ public class MainMenu : MonoBehaviour
     private GameObject HowToPlayPanel;
     private GameObject PlayPanel;
     private GameObject QuitPanel;
+    private bool start = true;
     [SerializeField] private Camera mainCamera;
+    private SoundManager soundManager;
 
     void Start()
     {
@@ -19,11 +21,16 @@ public class MainMenu : MonoBehaviour
         PlayPanel = transform.GetChild(2).gameObject;
         QuitPanel = transform.GetChild(3).gameObject;
         Time.timeScale = 1;
-        unlockLevels();
+        soundManager = GameObject.FindWithTag("Sound").GetComponent<SoundManager>();
     }
 
     void Update()
     {
+        if(start)
+        {
+            soundManager.mainMenuBackground();
+            start = false;
+        }
         if(Input.anyKeyDown)
         {
             click();
@@ -32,13 +39,13 @@ public class MainMenu : MonoBehaviour
 
     private void unlockLevels()
     {
-        int maxLevel = PlayerPrefs.GetInt("maxLevelCompleted");
+        int maxLevelIndex = PlayerPrefs.GetInt("maxLevelCompleted", 0);
         GameObject[] levels = GameObject.FindGameObjectsWithTag("Level");
-        for(int i = 0; i < maxLevel + 1; i++)
+        for(int i = 0; i <= maxLevelIndex && i < levels.Length; i++)
         {
             levels[i].transform.GetChild(1).gameObject.SetActive(false);
         }
-        for(int i = maxLevel + 1; i < levels.Length; i++)
+        for(int i = maxLevelIndex + 1; i < levels.Length; i++)
         {
             levels[i].GetComponent<Button>().interactable = false;
         }
@@ -48,6 +55,7 @@ public class MainMenu : MonoBehaviour
     {
         MainPanel.SetActive(false);
         PlayPanel.SetActive(true);
+        unlockLevels();
     }
 
     public void howToPlayBtn()
@@ -93,6 +101,7 @@ public class MainMenu : MonoBehaviour
                 if(button.interactable)
                 {
                     button.onClick.Invoke();
+                    soundManager.laser();
                 }
             }
         }

@@ -10,6 +10,12 @@ public abstract class Gun : MonoBehaviour
 
     [SerializeField] protected Transform gunStart;
     [SerializeField] protected Camera mainCamera;
+    protected SoundManager soundManager;
+
+    void Start()
+    {
+        soundManager = GameObject.FindWithTag("Sound").GetComponent<SoundManager>();
+    }
 
     public void shoot()
     {
@@ -25,6 +31,8 @@ public abstract class Gun : MonoBehaviour
                 //act
                 break;
         }
+
+        soundManager.laser();
     }
 
     protected abstract void shootLevel1();

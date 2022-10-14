@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 4519282631701236}
   - component: {fileID: 33127526743645708}
   - component: {fileID: 23102150001078294}
+  - component: {fileID: 2851279158747242814}
+  - component: {fileID: 2329161575662253403}
+  - component: {fileID: 3302386912687082919}
+  - component: {fileID: 7879717328536503609}
   m_Layer: 0
   m_Name: rpgpp_lt_building_05
   m_TagString: Untagged
@@ -81,3 +85,55 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2851279158747242814
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121113006719782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.8849535, y: 9.201763, z: 1.536015}
+  m_Center: {x: 1.5123267, y: 3.6008835, z: -1.4880931}
+--- !u!65 &2329161575662253403
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121113006719782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.725339, y: 5.049743, z: 7.3013215}
+  m_Center: {x: -0.007481098, y: 1.5248725, z: -1.4945338}
+--- !u!65 &3302386912687082919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121113006719782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.23292, y: 8.143965, z: 10.04986}
+  m_Center: {x: -1.6815413, y: 3.0719852, z: 0.45423865}
+--- !u!65 &7879717328536503609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121113006719782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.538849, y: 4.0838284, z: 10.844092}
+  m_Center: {x: -1.6664019, y: 1.0821183, z: 0.18168402}

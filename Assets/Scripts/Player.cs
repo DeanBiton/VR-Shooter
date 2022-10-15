@@ -27,12 +27,15 @@ public class Player : MonoBehaviour
 
     public void Damage()
     {
-        soundManager.hurt();
-        currentHealth -= 1;
-        levelUI.updateHealth(currentHealth);
-        if(currentHealth == 0)
+        if(currentHealth != 0)
         {
-            levelUI.levelFailed();
+            soundManager.hurt();
+            currentHealth -= 1;
+            levelUI.updateHealth(currentHealth);
+            if(currentHealth == 0)
+            {
+                levelUI.levelFailed();
+            }
         }
     }
 }
